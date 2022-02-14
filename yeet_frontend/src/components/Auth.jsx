@@ -1,0 +1,92 @@
+import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
+
+import axios from 'axios';
+
+const Auth = () => {
+  const [inputs, setInputs] = useState({});
+  
+  async function register(event){
+    event.preventDefault();
+    await axios.post(`/api/v2/register`, this.dataRegisterForm)
+            .then(response => {
+            this.login(response.data);
+            })
+            .catch(error => {
+            console.log(error)
+        })
+  }
+
+  async function login(data){
+    let token = data.token
+    this.$store.commit('setToken', token)
+    axios.defaults.headers.common["Authorization"] = "Token " + token
+    localStorage.setItem("token", token)
+    this.slug = data.calendar.slug
+    this.$router.push({ path: `/yeet/${this.slug}`})
+  }
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
+
+  async function handleLogin(event) {
+    event.preventDefault();
+    console.log(inputs.username, inputs.password)
+    return window.location = "/yeet" 
+  }
+
+  async function handleSignIn(event) {
+    event.preventDefault();
+    console.log(inputs.username, inputs.password)
+    return window.location = "/yeet"
+  }
+
+  return (
+    <div>
+      <h1>ID Please</h1>
+      <form onSubmit={handleLogin}>
+        <input 
+          type="text" 
+          name="username" 
+          placeholder="Yeet Name"
+          value={inputs.username || ""} 
+          onChange={handleChange}
+        />
+        <input 
+          type="password" 
+          name="password" 
+          placeholder="password"
+          value={inputs.password || ""} 
+          onChange={handleChange}
+        />
+        <input type="submit" />
+      </form>
+      New to Yeet?<button>SIGN UP</button>
+
+      <h1>Create your Yeet ID</h1>
+      <form onSubmit={handleSignIn}>
+        <input 
+          type="text" 
+          name="username" 
+          placeholder="Yeet Name"
+          value={inputs.username || ""} 
+          onChange={handleChange}
+        />
+        <input 
+          type="password" 
+          name="password" 
+          placeholder="password"
+          value={inputs.password || ""} 
+          onChange={handleChange}
+        />
+        <input type="submit" />
+      </form>
+      Already have one?<button>LOG IN</button>
+      <Link to={'/yeet'} state={'anonymous'}>Yeet anonymously?</Link>
+    </div>
+  );
+}
+export default Auth;
