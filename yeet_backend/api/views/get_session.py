@@ -7,6 +7,7 @@ from api.serializers import SessionSerializer
 from api.constants import *
 
 class GetSession(APIView):
+    """Get session in the view of frontend or hardware"""
     def get(self, request):
         # query possible params
         view_as = request.query_params.get("view_as")

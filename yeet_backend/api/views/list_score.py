@@ -8,6 +8,7 @@ from api.constants import *
 
 
 class ListScore(APIView):
+    """Get list of score with specified length"""
     def get(self, request):
         length = request.query_params.get("length")
         length = int(length) if length is not None else DEFAULT_SCORE_LIST_LENGTH
