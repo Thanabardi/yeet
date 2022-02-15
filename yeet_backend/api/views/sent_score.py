@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import *
+from django.views.decorators.csrf import csrf_exempt
 
 from api.models import Session, Machine
 
@@ -9,6 +10,7 @@ from datetime import datetime
 
 class SentScore(APIView):
     """Send score and end session after score is sent"""
+    @csrf_exempt
     def put(self, request):
         session_id = request.data["session_id"]
         machine_code = request.data["machine_code"]
