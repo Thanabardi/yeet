@@ -5,7 +5,8 @@ from .machine import Machine
 
 class Session(models.Model):
     logged_in = models.BooleanField()
-    machine_code = models.ForeignKey(Machine, on_delete=models.CASCADE)
+    is_done = models.BooleanField(default=False)
+    machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
     start = models.DateTimeField(blank=True, null=True)
     end = models.DateTimeField(blank=True, null=True)
     score = models.IntegerField(blank=True, null=True)
@@ -13,3 +14,7 @@ class Session(models.Model):
 
     class Meta:
         ordering = ('score', 'start', )
+        get_latest_by = "start"
+
+    def machine_code(self):
+        return self.machine.machine_code
