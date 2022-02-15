@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import *
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
@@ -10,8 +11,10 @@ from api.serializers import SessionSerializer
 
 from datetime import datetime
 
+
 class StartSession(APIView):
     """Create a session, use whenever you start a game"""
+    @csrf_exempt
     def post(self, request):
         # check token
         try:
@@ -27,14 +30,15 @@ class StartSession(APIView):
             logged_in = False
         # other fields
         try:
-            machine_code = Machine.objects.get(machine_code=request.data["machine_code"])
+            machine_code = request.data["machine_code"]
+            machine = Machine.objects.get(machine_code=machine_code)
         except Machine.DoesNotExist:
             return Response({"msg": "Machine does not exist"}, HTTP_404_NOT_FOUND)
         start = datetime.now()
 
         session = Session.objects.create(
             logged_in = logged_in,
-            machine_code = machine_code,
+            machine = Machine.objects.get(machine_code=machine_code),
             start = start,
             user = user
         )

@@ -6,6 +6,7 @@ from api.models import Session, Machine
 
 from datetime import datetime
 
+
 class SentScore(APIView):
     """Send score and end session after score is sent"""
     def put(self, request):
