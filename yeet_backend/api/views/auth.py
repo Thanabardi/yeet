@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import *
+from rest_framework.authtoken.models import Token
 
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
@@ -18,12 +19,14 @@ class Login(APIView):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+            token, _ = Token.objects.get_or_create(user=user)
             return Response({
                 "user": UserSerializer(user).data,
+                "token": token.key,
                 "msg": "logged in"
                 })
         else:
-            return Response({"msg": "user not found"}, HTTP_404_NOT_FOUND)
+            return Response({"msg": "invalid username/password"}, HTTP_404_NOT_FOUND)
 
 class Logout(APIView):
 
