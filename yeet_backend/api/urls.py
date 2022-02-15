@@ -9,5 +9,8 @@ urlpatterns = [
     path("register/", Register.as_view(), name="register"),
 
     path("play/start-session/", StartSession.as_view(), name="start-session"),
-    path("play/get-session/", GetSession.as_view(), name="get-session")
+    path("play/get-session/", GetSession.as_view(), name="get-session"),
+
+    path("play/sent-score/", SentScore.as_view(), name="sent-score"),
+    path("play/list-score/", ListScore.as_view(), name="list-score"),
 ]

@@ -18,3 +18,8 @@ class Session(models.Model):
 
     def machine_code(self):
         return self.machine.machine_code
+
+    def username(self):
+        if self.user is None:
+            return "Anonymous"
+        return self.user.username

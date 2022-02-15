@@ -35,7 +35,5 @@ class GetSession(APIView):
                     return Response({"msg": f"session: {session_id} at machine_code: {machine_code} not found"}, HTTP_404_NOT_FOUND)
             else:
                 return Response({"msg": "invalid type of view"}, HTTP_400_BAD_REQUEST)
-        else:
-            return Response({"msg": "please specify type of view and machine code"}, HTTP_400_BAD_REQUEST)
-
-        return Response({"view-as": view_as})
+        
+        return Response({"msg": "please specify type of view and machine code"}, HTTP_400_BAD_REQUEST)
