@@ -7,7 +7,7 @@ const useAudio = audioPath => {
   const toggle = () => setPlaying(!playing)
 
   useEffect(() => {
-      playing ? audio.play() : audio.mute()
+      playing ? audio.play() : audio.pause()
     },
     [playing, audio]
   )
