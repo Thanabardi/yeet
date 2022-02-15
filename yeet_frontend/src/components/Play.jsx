@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 
 const Play = () => {
   const playerScore = null
+  const ready = false
   const location = useLocation()
   const [score, setScore] = useState()
+  let [timeDelay, setTimeDelay] = useState(5)
   // console.log(location.state)
 
   useEffect(() => {
@@ -27,6 +29,13 @@ const Play = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeDelay(timeDelay-=1)
+      return () => clearInterval(interval);
+    }, 1000);
+  }, []);
+
   function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
@@ -35,7 +44,20 @@ const Play = () => {
     <div>
       <h1>Play</h1>
       <h1>{location.state}</h1>
-      { playerScore === null ? <h1>{ score }</h1> : <h1>{ playerScore }</h1> }
+      {timeDelay > 0 ? <h2>{timeDelay}</h2> : <h1>GO!</h1>}
+
+      {/* score display */}
+      {(playerScore === null && ready && timeDelay < -1) && <h1>{ score }</h1>}
+      {playerScore !== null && <h1>{ playerScore }</h1>}
+
+      {/* redirect to rank page */}
+      {(playerScore !== null && location.state === "Competitive" && timeDelay < -8) && <Navigate to={'/rank'} state={'rank'} />}
+      {/* redirect to main menu */}
+      {(playerScore !== null && location.state !== "Quick Play" && timeDelay < -8) && <Navigate to={'/yeet'} />}
+
+      {/* check error */}
+      {(playerScore === null && !ready  && timeDelay < -8) && <h1>Error, Please Yeet Again</h1>}
+      {(playerScore === null && !ready  && timeDelay < -10) && <Navigate to={'/yeet'} state={'James'} />}
     </div>
   );
 }

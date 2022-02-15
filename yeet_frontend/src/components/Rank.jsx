@@ -27,6 +27,22 @@ const Rank = () => {
       <h1>Rank</h1>
       {location.state}
       {rank}
+      <table>
+        <thead>
+          <td>Time</td>
+          <td>Score</td>
+        </thead>
+        <tbody>
+          {/* {this.state.data.map(( listValue, index ) => {
+            return (
+              <tr key={index}>
+                <td>{listValue.id}</td>
+                <td>{listValue.title}</td>
+              </tr>
+            );
+          })} */}
+        </tbody>
+      </table>
       <Link to={'/yeet'} state={'anonymous'}>Done</Link>
     </div>
   );
