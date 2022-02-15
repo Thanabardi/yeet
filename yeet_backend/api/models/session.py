@@ -13,7 +13,7 @@ class Session(models.Model):
     user = models.ForeignKey(User, blank=True, null=True, on_delete=models.CASCADE)
 
     class Meta:
-        ordering = ('score', 'start', )
+        ordering = ('-score', 'start', )
         get_latest_by = "start"
 
     def machine_code(self):
