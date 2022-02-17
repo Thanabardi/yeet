@@ -9,11 +9,14 @@ from api.constants import *
 
 class ListScore(APIView):
     """Get list of score with specified length"""
-    def get(self, request):
-        length = request.query_params.get("length")
-        length = int(length) if length is not None else DEFAULT_SCORE_LIST_LENGTH
+    def get(self, request, length=DEFAULT_SCORE_LIST_LENGTH):
+        # try:
+        #     length = request.data["length"]
+        # except:
+        #     print("sry")
+        #     length = DEFAULT_SCORE_LIST_LENGTH
 
         sessions = Session.objects.order_by('-score').exclude(score__isnull=True)
-        sessions = sessions[:min(length, len(sessions))]
+        sessions = sessions[:min(int(length), len(sessions))]
 
         return Response({"score": ScoreSerializer(sessions, many=True).data})

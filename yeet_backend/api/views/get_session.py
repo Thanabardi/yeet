@@ -11,13 +11,13 @@ class GetSession(APIView):
     """Get session in the view of frontend or hardware"""
     def get(self, request):
         # query possible params
-        view_as = request.query_params.get("view_as")
-        machine_code = request.query_params.get("machine_code")
+        view_as = request.data["view_as"]
+        machine_code = request.data["machine_code"]
 
         if view_as is not None and machine_code is not None:
             # for front-end
             if view_as == FRONTEND_VIEW:
-                session_id = request.query_params.get("session_id")
+                session_id = request.data["session_id"]
                 if session_id is None:
                     return Response({"msg": "please specify session id"})
                 try:

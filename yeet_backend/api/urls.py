@@ -11,4 +11,5 @@ urlpatterns = [
     path("play/get-session/", GetSession.as_view(), name="get-session"),
     path("play/sent-score/", SentScore.as_view(), name="sent-score"),
     path("play/list-score/", ListScore.as_view(), name="list-score"),
+    path("play/list-score/<length>/", ListScore.as_view(), name="list-score"),
 ]
