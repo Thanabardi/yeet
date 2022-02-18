@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +6,17 @@ import '../assets/style.css';
 import MusicPlayer from './MusicPlayer'
 
 const Menu = () => {
-  const location = useLocation()
+  // const location = useLocation()
+  let [userData, setUserData] = useState(null)
+
+
+  function logout() {
+    if (userData) {
+      sessionStorage.removeItem('userData')
+    }
+    return window.location = "/auth" 
+  }
+  // console.log(userData)
   // console.log(location.state)
   // const audio = new Audio("/METATRON _SHIKI.mp3")
 
@@ -14,18 +24,23 @@ const Menu = () => {
   //   audio.play()
   // }
 
+  useEffect(() => {
+    setUserData(JSON.parse(sessionStorage.getItem('userData')))
+  }, []);
+
   return (
     <div className='main-menu'>
       <h1>Yeet</h1>
-      <h1>{location.state}</h1>
+      {userData && <h1>{userData.user.username}</h1>}
       {/* <img src="logo.PNG" alt="Yeet Logo"></img> */}
 
       <Link to={'/play'} state={'Quick Play'}>Quick Play</Link>
-      <Link to={'/play'} state={'Competitive'}>Competitive</Link>
+      {userData ? <Link to={'/play'} state={'Competitive'}>Competitive</Link> : <p>Competitive</p>}
       <Link to={'/rank'} state={'rank'}>Rank</Link>
-      <Link to={'/profile'} state={'Profile'}>Profile</Link>
-      <Link to={'/auth'} state={'Logout'}>Logout</Link>
-      
+      {userData ? <Link to={'/profile'} state={'Profile'}>Profile</Link> : <p>Profile</p>}
+      {/* <Link to={'/auth'} state={'Logout'}>Logout</Link> */}
+      <button onClick={logout}>{userData ? 'Logout' : 'Sign Up'}</button>
+
       <MusicPlayer audioType={"menu"} />
     </div>
   );

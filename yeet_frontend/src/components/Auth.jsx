@@ -36,16 +36,36 @@ const Auth = () => {
     setInputs(values => ({...values, [name]: value}))
   }
 
-  async function handleLogin(event) {
+  async function handleSignUp(event) {
     event.preventDefault();
-    console.log(inputs.username, inputs.password)
+    const data = JSON.stringify({username : inputs.username, password : inputs.password, email : inputs.email})
+    console.log(data)
+    // await axios.post(`https://ecourse.cpe.ku.ac.th/exceed03/api/login/`, data)
+    //   .then(response => {
+    //     login(response.data);
+    //   })
+    //   .catch(error => {
+    //     console.log(error)
+    //   })
+  }
+
+  async function login(data) {
+    sessionStorage.setItem('userData', JSON.stringify(data))
+    // console.log(JSON.parse(sessionStorage.getItem('userData')))
     return window.location = "/yeet" 
   }
 
-  async function handleSignIn(event) {
+  async function handleRegister(event) {
     event.preventDefault();
-    console.log(inputs.username, inputs.password)
-    return window.location = "/yeet"
+    const data = {"username" : inputs.username, "password" : inputs.password}
+    await axios.post(`https://ecourse.cpe.ku.ac.th/exceed03/api/login/`, data)
+      .then(response => {
+        // console.log(response.data)
+        login(response.data);
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   return (
@@ -53,7 +73,7 @@ const Auth = () => {
       {isLogin ? 
       <div>
         <h1>ID Please</h1>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleRegister}>
           <input 
             type="text" 
             name="username" 
@@ -75,7 +95,7 @@ const Auth = () => {
       :
       <div>
         <h1>Create your Yeet ID</h1>
-        <form onSubmit={handleSignIn}>
+        <form onSubmit={handleSignUp}>
           <input 
             type="text" 
             name="username" 
@@ -88,6 +108,13 @@ const Auth = () => {
             name="password" 
             placeholder="password"
             value={inputs.password || ""} 
+            onChange={handleChange}
+          />
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="email"
+            value={inputs.email || ""} 
             onChange={handleChange}
           />
           <button>SIGN UP</button>
