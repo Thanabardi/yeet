@@ -13,7 +13,6 @@ class GetSession(APIView):
         if view_as is not None and machine_code is not None:
             # for front-end
             if view_as == FRONTEND_VIEW:
-                session_id = request.data["session_id"]
                 if session_id is None:
                     return Response({"msg": "please specify session id"})
                 try:
