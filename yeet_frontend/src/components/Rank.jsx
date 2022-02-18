@@ -23,13 +23,29 @@ const Rank = () => {
     getRank().then((data) => {
     setRank(data.score)
     console.log("this", data.score)
+
+    // const uniq = [...new Map(rank.map(item => [JSON.stringify(item).substring(0, 22), item])).values()];
     })
   }, []);
+
+  function removeDuplicate(arr, prop) {
+    var new_arr = [];
+    var lookup = {};
+    for (var i in arr) {
+        lookup[arr[i][prop]] = arr[i];
+    }
+    for (i in lookup) {
+        new_arr.push(lookup[i]);
+    }
+    return new_arr
+    }
+    var newArray = removeDuplicate(rank, 'username');
+    console.log("Result ", newArray);
 
   return (
     <div>
       <h1>Rank</h1>
-      {location.state}
+      {location.state.type}
       <table>
         <thead>
         <tr>
@@ -39,7 +55,7 @@ const Rank = () => {
         </tr>
         </thead>
         <tbody>
-          {rank.filter(user => user.username.includes('p')).map((user, index) => {
+          {rank.filter(user => user.username.includes('s')).map((user, index) => {
             return (
               <tr key={index}>
                 <td>{user.username}</td>

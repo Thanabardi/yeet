@@ -35,8 +35,8 @@ const Menu = () => {
       {/* <img src="logo.PNG" alt="Yeet Logo"></img> */}
 
       <Link to={'/play'} state={'Quick Play'}>Quick Play</Link>
-      {userData ? <Link to={'/play'} state={'Competitive'}>Competitive</Link> : <p>Competitive</p>}
-      <Link to={'/rank'} state={'rank'}>Rank</Link>
+      {userData ? <Link to={'/play'} state={{'type': 'Competitive', 'userData': userData}}>Competitive</Link> : <p>Competitive</p>}
+      <Link to={'/rank'} state={{'type': 'Rank', 'userData': userData}}>Rank</Link>
       {userData ? <Link to={'/profile'} state={'Profile'}>Profile</Link> : <p>Profile</p>}
       {/* <Link to={'/auth'} state={'Logout'}>Logout</Link> */}
       <button onClick={logout}>{userData ? 'Logout' : 'Sign Up'}</button>

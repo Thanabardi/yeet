@@ -11,7 +11,6 @@ const Play = () => {
   const ready = false
   const location = useLocation()
 
-  let [userData, setUserData] = useState(null)
   let [playerScore, setplayerScore] = useState(null)
   let [randomScore, setRandomScore] = useState()
   let [timeDelay, setTimeDelay] = useState(21)
@@ -26,11 +25,11 @@ const Play = () => {
   }
 
   async function sendReady() {
-    const data = {"token" : null, "machine_code" : matchineCode}
-    if (userData && location.state === "Competitive") {
-      data = {"token" : userData.token, "machine_code" : matchineCode}
+    let data = {"token" : null, "machine_code" : matchineCode}
+    if (location.state.userData && location.state.type === "Competitive") {
+      data = {"token" : location.state.userData.token, "machine_code" : matchineCode}
     }
-    console.log(userData, location.state)
+    console.log(data)
     await axios.post(`https://ecourse.cpe.ku.ac.th/exceed03/api/play/start-session/`, data)
       .then(response => {
         // console.log(response.data)
@@ -41,9 +40,7 @@ const Play = () => {
   }
   
 
-  
   useEffect(() => {
-    setUserData(JSON.parse(sessionStorage.getItem('userData')))
     sendReady()
   }, []);
 
@@ -86,7 +83,7 @@ const Play = () => {
   return (
     <div>
       <h1>Play</h1>
-      <h1>{location.state}</h1>
+      <h1>{location.state.type}</h1>
       {timeDelay > 10 && <h1>Ready?</h1>}
       {timeDelay > 0 && timeDelay <= 10 && <h2>{timeDelay}</h2>}
       {timeDelay <= 0 && <h1>GO!</h1>}
@@ -96,13 +93,13 @@ const Play = () => {
       {playerScore !== null && <h1>{ playerScore }</h1>}
 
       {/* redirect to rank page */}
-      {(playerScore !== null && location.state === "Competitive" && timeDelay < -8) && <Navigate to={'/rank'} state={'rank'} />}
+      {(playerScore !== null && location.state.type === "Competitive" && timeDelay < -8) && <Navigate to={'/rank'} state={{'type': 'Rank', 'userData': location.state.userData}} />}
       {/* redirect to main menu */}
-      {(playerScore !== null && location.state === "Quick Play" && timeDelay < -8) && <Navigate to={'/yeet'} />}
+      {(playerScore !== null && location.state.type === "Quick Play" && timeDelay < -8) && <Navigate to={'/yeet'} />}
 
       {/* check error */}
       {(playerScore === null && !ready  && timeDelay < -8) && <h1>Error, Please Yeet Again</h1>}
-      {(playerScore === null && !ready  && timeDelay < -10) && <Navigate to={'/yeet'} state={'James'} />}
+      {(playerScore === null && !ready  && timeDelay < -10) && <Navigate to={'/yeet'} />}
       
       <MusicPlayer audioType={"play"} />
     </div>
