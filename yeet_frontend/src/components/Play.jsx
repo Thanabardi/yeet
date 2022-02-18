@@ -48,7 +48,7 @@ const Play = () => {
 
       {/* score display */}
       {(playerScore === null && ready && timeDelay < -1) && <h1>{ score }</h1>}
-      {playerScore !== null && <h1>{ playerScore }</h1>}
+      {playerScore !== null && <div><h1>{ playerScore }</h1></div>}
 
       {/* redirect to rank page */}
       {(playerScore !== null && location.state === "Competitive" && timeDelay < -8) && <Navigate to={'/rank'} state={'rank'} />}

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import '../assets/MainMeun.css'
-import '../assets/style.css';
 import AudioPlayer from './AudioPlayer'
+import '../assets/Menutemp.css'
+import yeet from '../photo/Yeet.PNG'
+import icon from "../photo/icon.png"
 
 const Menu = () => {
   const location = useLocation()
@@ -15,35 +16,46 @@ const Menu = () => {
   // }
 
   return (
-    <div className='test'>
-      <h1 className='username'>{location.state}</h1>
-    <div className='main-menu'>
-      {/* <img src="logo.PNG" alt="Yeet Logo"></img> */}
-      <div className='Quick-Play'>
-      <Link to={'/play'} state={'Quick Play'}>QUICK PLAY</Link>
-      </div>
-      <div className='rank'>
-      <Link to={'/rank'} state={'rank'}>RANK</Link>
-      </div>
-      {/* <button onClick={start}>Play</button> */}
-      {/* <AudioPlayer audioPath={"https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg"}/> */}
-    </div>
-    <div className='main-menu2'>
-    <div className='competitive'>
-      <Link to={'/play'} state={'Competitive'}>COMPETITIVE</Link>
-      </div>
-      </div>
-      <div className='main-menu'>
-      <div className='profile-menu'>
-      <Link to={'/profile'} state={'Profile'}>PROFILE</Link>
-     </div>
-      <div className='menu-logout'>
-      <Link to={'/auth'} state={'Logout'}>LOGOUT</Link>
-      </div>
-      <AudioPlayer audioPath={"/METATRON _SHIKI.mp3"}/>
+    <div className='main'>
       
+      <div className="box">
+        <div className='main-link-quckplay'> 
+        <Link to={'/play'} state={'Quick Play'} className="main-quickplay">QUICK PLAY</Link>
+        </div>
+        <div className='main-link-profile'> 
+        <Link to={'/profile'} state={'Profile'} className ='main-profile'>PROFILE</Link>
+        </div>
+      </div>
+      <div className='fade'>
+        <img src={yeet} alt="cat" className='logo' width="972px"  height="393px"  /> 
+        </div>
+      <div className="box2">
+        <div className="main-link-com">
+           <Link to={'/play'} state={'Competitive'}>COMPETITIVE</Link>
+        </div>
+      </div>
+      <div className="box3">
+        <div className="main-link-rank">
+            <Link to={'/rank'} state={'rank'}>RANK</Link>
+        </div>
+        <div className="main-link-logout">
+           <Link to={'/auth'} state={'Logout'}>LOGOUT</Link>
+        </div>
+      </div>
+      <div className="box4"></div>
+
+   
+
+      <div className="username">
+          <h1 className='name'>{location.state}</h1>
+          {location.state==="anonymous"&&<img src={icon} alt="anonymous"  className='icon'/>}
+      </div>
+
+      <div className="Pause">
+          <AudioPlayer audioPath={"/METATRON _SHIKI.mp3"} className="Pause-but"/>
+      </div>
     </div>
-    </div>
+    
   );
 }
 export default Menu;
