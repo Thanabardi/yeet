@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import axios from 'axios'
 
+import MusicPlayer from './MusicPlayer'
+
 const Rank = () => {
   const [rank, setRank] = useState()
   const location = useLocation()
@@ -44,6 +46,7 @@ const Rank = () => {
         </tbody>
       </table>
       <Link to={'/yeet'} state={'anonymous'}>Done</Link>
+      <MusicPlayer audioType={"rank"} />
     </div>
   );
 }

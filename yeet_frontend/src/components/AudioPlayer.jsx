@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-const useAudio = audioPath => {
-  const [audio] = useState(new Audio(audioPath))
-  const [playing, setPlaying] = useState(true)
+const useAudio = audioType => {
+  const audioList = {"Menu": "/METATRON _SHIKI.mp3"}
+  console.log(audioList[audioType])
+  const [audio] = useState(new Audio(audioList[audioType]))
+  const [playing, setPlaying] = useState(false)
 
   const toggle = () => setPlaying(!playing)
 
@@ -23,8 +25,8 @@ const useAudio = audioPath => {
   return [playing, toggle]
 }
 
-const Player = ({ audioPath }) => {
-  const [playing, toggle] = useAudio(audioPath)
+const Player = ({ audioType }) => {
+  const [playing, toggle] = useAudio(audioType)
 
   return (
     <div>

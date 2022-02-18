@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios';
+import MusicPlayer from './MusicPlayer'
 
 const Auth = () => {
   const [inputs, setInputs] = useState({});
@@ -95,6 +96,8 @@ const Auth = () => {
       </div>
       }
       <Link to={'/yeet'} state={'anonymous'}>Yeet anonymously?</Link>
+
+      <MusicPlayer audioType={"auth"} />
     </div>
   );
 }

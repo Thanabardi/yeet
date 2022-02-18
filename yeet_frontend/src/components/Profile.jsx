@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+import MusicPlayer from './MusicPlayer'
+
 const Profile = () => {
   const location = useLocation()
   // console.log(location.state)
@@ -53,6 +55,8 @@ const Profile = () => {
         </tbody>
       </table>
       <Link to={'/yeet'} state={'anonymous'}>Done</Link>
+
+      <MusicPlayer audioType={"profile"} />
     </div>
   );
 }

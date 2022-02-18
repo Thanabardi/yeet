@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 import '../assets/style.css';
-import AudioPlayer from './AudioPlayer'
+import MusicPlayer from './MusicPlayer'
 
 const Menu = () => {
   const location = useLocation()
@@ -25,9 +25,8 @@ const Menu = () => {
       <Link to={'/rank'} state={'rank'}>Rank</Link>
       <Link to={'/profile'} state={'Profile'}>Profile</Link>
       <Link to={'/auth'} state={'Logout'}>Logout</Link>
-      {/* <button onClick={start}>Play</button> */}
-      <AudioPlayer audioPath={"/METATRON _SHIKI.mp3"}/>
-      {/* <AudioPlayer audioPath={"https://actions.google.com/sounds/v1/water/waves_crashing_on_rock_beach.ogg"}/> */}
+      
+      <MusicPlayer audioType={"menu"} />
     </div>
   );
 }
