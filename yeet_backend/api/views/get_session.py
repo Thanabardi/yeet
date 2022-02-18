@@ -9,11 +9,7 @@ from api.constants import *
 
 class GetSession(APIView):
     """Get session in the view of frontend or hardware"""
-    def get(self, request):
-        # query possible params
-        view_as = request.data["view_as"]
-        machine_code = request.data["machine_code"]
-
+    def get(self, request, machine_code, view_as, session_id=None):
         if view_as is not None and machine_code is not None:
             # for front-end
             if view_as == FRONTEND_VIEW:
