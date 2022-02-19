@@ -51,7 +51,7 @@ const Rank = () => {
       <div className='ranktable'>
       <table>
         <thead>
-        <tr>
+        <tr className='head'>
           <td>User</td>
           <td>Score</td>
           <td>Time</td>

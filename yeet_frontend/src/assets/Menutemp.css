@@ -33,7 +33,7 @@
 
 .main-link-quckplay{
     position: relative;
-    top :5px;
+    top :15px;
     left: 70px;
     width: 700px;
     /* background-color: aqua; */
@@ -43,7 +43,7 @@
     position: relative;
     width: 700px;
     left: 1180px;
-    bottom: 287px;
+    bottom: 260px;
     /* background-color: aqua; */
     margin-top: 200px;
 }
@@ -51,7 +51,7 @@
   .box :link {
     text-decoration: none;
     color: black;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 20em;
     transition: all 1s ease;
  
@@ -95,7 +95,7 @@
   .box2 :link {
     text-decoration: none;
     color: white;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 20em;
     transition: all 1s ease;
  
@@ -121,7 +121,7 @@
 
 .main-com{
   position: relative;
-  bottom: 15px;
+  bottom: 5px;
 }
 
   .box3{
@@ -142,7 +142,7 @@
   .box3 :link {
     text-decoration: none;
     color: black;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 20em;
     transition: all 1s ease;
  
@@ -160,8 +160,8 @@
   
   .main-link-rank{
       position: relative;
-      right: 610px;
-      top: 7px;
+      right: 650px;
+      top: 13px;
   }
 
   .main-link-logout{
@@ -171,8 +171,10 @@
   }
 
   .logout-button-menu{
-    font-size: 50px;
-    font-weight: 20em
+    font-size: 40px;
+    font-weight: 20em;
+    position: relative;
+    top: 15px;
   }
 
 
@@ -199,8 +201,8 @@
     overflow: hidden;
     z-index:2;
     position: relative;
-    bottom: px;
-    left: 120px;
+    bottom: 30px;
+    left: 130px;
     animation-name: FadeIn;
     animation-duration: 3s;
     transition-timing-function: linear;
@@ -263,6 +265,25 @@
     /* background-color: aqua; */
     
 }
+
+
+
+.song{
+  color: white;
+  position: relative;
+  font-size: 20px;
+  z-index: 4;
+  width: 400px;
+  height: 200px;
+  bottom: 1750px;
+  text-align:center;
+  animation-name: FadeIn;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  
+}
+
+
 
   @keyframes rotate {
     0% {
