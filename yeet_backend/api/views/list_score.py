@@ -2,8 +2,9 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import *
 
+from django.contrib.auth.models import User
 from api.models import Session
-from api.serializers import ScoreSerializer
+from api.serializers import ScoreSerializer, UserSerializer
 from api.constants import *
 
 
@@ -18,5 +19,12 @@ class ListScore(APIView):
 class PersonalListScore(APIView):
     """Get list of personal score records"""
     def get(self, request, user_id):
+        try:
+            user = User.objects.get(id=user_id)
+        except User.DoesNotExist:
+            return Response({"msg": "user not found"}, HTTP_404_NOT_FOUND)
         session = Session.objects.filter(user__id=user_id).order_by('-score').exclude(score__isnull=True)
-        return Response({"score": ScoreSerializer(session, many=True).data})
+        return Response({
+            "user": UserSerializer(user).data,
+            "score": ScoreSerializer(session, many=True).data
+            })
