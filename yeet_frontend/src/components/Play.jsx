@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import '../assets/play_style.css';
+import quickplay from "../photo/quickplay.PNG"
+import competitive from "../photo/competitive.PNG"
 
 import axios from 'axios';
 
@@ -81,9 +84,12 @@ const Play = () => {
   }
 
   return (
-    <div>
-      <h1>Play</h1>
-      <h1>{location.state.type}</h1>
+    <div className='play'>
+      <h1>PLAY</h1>
+
+      {location.state.type === "Quick Play" && <img src={quickplay} className='quickplayimg'/>}
+      {location.state.type === "Competitive" && <img src={competitive} className='competitiveimg'/>}
+
       {timeDelay > 10 && <h1>Ready?</h1>}
       {timeDelay > 0 && timeDelay <= 10 && <h2>{timeDelay}</h2>}
       {timeDelay <= 0 && <h1>GO!</h1>}
@@ -92,6 +98,7 @@ const Play = () => {
       {(playerScore !== null && timeDelay < -1) && <h1>{ randomScore }</h1>}
       {playerScore !== null && <h1>{ playerScore }</h1>}
 
+  
       {/* redirect to rank page */}
       {(playerScore !== null && location.state.type === "Competitive" && timeDelay < -8) && <Navigate to={'/rank'} state={{'type': 'Rank', 'userData': location.state.userData}} />}
       {/* redirect to main menu */}

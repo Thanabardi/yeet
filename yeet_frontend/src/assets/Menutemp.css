@@ -1,0 +1,312 @@
+
+
+
+.main {
+    overflow:hidden;
+    max-width: 1450px;
+     max-height: 850px; 
+    text-align: center;
+
+}
+
+
+.box {
+    margin-top: 300px;
+    margin-left: -100px;
+    background-color: white;
+    width: 1800px;
+    height: 100px;
+    animation-name: rotate1;
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+    animation-duration: 0.8s;
+    transform: rotate(29.4deg); 
+    animation-direction: reverse;
+    position: relative;
+    z-index: 2;
+  }
+  
+
+.main-link-quckplay{
+    position: relative;
+    top :5px;
+    left: 70px;
+    width: 700px;
+    /* background-color: aqua; */
+    margin-top: 200px;
+}
+.main-link-profile{
+    position: relative;
+    width: 700px;
+    left: 1100px;
+    bottom: 287px;
+    /* background-color: aqua; */
+    margin-top: 200px;
+}
+
+  .box :link {
+    text-decoration: none;
+    color: black;
+    font-size: 50px;
+    font-weight: 20em;
+    transition: all 1s ease;
+ 
+  }
+
+  .box :hover{
+    text-shadow: 4px 4px #ffc100;
+    transform: translate(-12px,-12px);
+  }  
+
+
+  .box :visited {
+    color: black;
+  }
+  
+  
+  
+ 
+
+  .box2{
+    /* animation-delay: 4s; */
+    background-color: #0a0903;
+    margin-top: -208px;
+    /* animation-delay: 2s; */
+    /* border-radius: 10px; */
+    width: 1800px;
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+    height: 100px;
+    animation-name: rotate;
+    animation-duration: 1.2s;
+  
+    transform: rotate(29.4deg); 
+    animation-direction: reverse;
+    margin-left: -130px;  
+    position: relative;
+    z-index: 1;
+  }
+
+  .box2 :link {
+    text-decoration: none;
+    color: white;
+    font-size: 50px;
+    font-weight: 20em;
+    transition: all 1s ease;
+ 
+  }
+
+  .box2 :hover{
+    text-shadow: 4px 4px #ffc100;
+    transform: translate(-12px,-12px);
+  }  
+
+
+  .box2 :visited {
+    color: white;
+  }
+
+  .main-link-com{
+      /* background-color: aqua; */
+      width: 700px;
+      position: relative;
+      
+
+  }
+
+
+  .box3{
+    margin-top: -15px;
+    background-color: white;
+    width: 1800px;
+    height: 100px;
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+    animation-name: rotate1;
+    animation-duration: 1s;
+    transform: rotate(29.4deg); 
+    animation-direction: reverse;
+    margin-left: -150px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .box3 :link {
+    text-decoration: none;
+    color: black;
+    font-size: 50px;
+    font-weight: 20em;
+    transition: all 1s ease;
+ 
+  }
+
+  .box3 :hover{
+    text-shadow: 4px 4px #ffc100;
+    transform: translate(-12px,-12px);
+  }  
+
+
+  .box3 :visited {
+    color: black;
+  }
+  
+  .main-link-rank{
+      position: relative;
+      right: 610px;
+      top: 7px;
+  }
+
+  .main-link-logout{
+      position: relative;
+      bottom: 80px;
+      left: 250px;
+  }
+
+
+
+
+  .box4{
+    animation-name: FadeIn;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in-out;
+    z-index: -1px;
+    position:relative;
+    background: linear-gradient(to right,#ff8200 0%,#ff8200 50%,#0a0903 50%,#0a0903 100%);
+    width:1460px;
+    height: 1500px;
+    right: 0px;
+    bottom: 930px;
+    transform: rotate(120deg);
+    
+    
+}
+
+   .fade {
+    text-align: center;
+    position: relative;
+    margin-top: -200px;
+    overflow: hidden;
+    z-index:2;
+    position: relative;
+    bottom: px;
+    left: 120px;
+    animation-name: FadeIn;
+    animation-duration: 3s;
+    transition-timing-function: linear;
+    transform: translateY();
+    
+} 
+
+ .logo {
+     animation-name: shake;
+     animation-delay: 2s;
+     transition-timing-function: linear;
+     animation-iteration-count: infinite;
+     animation-duration: 0.3s;
+ }
+
+.username{
+    position: absolute;
+    font-size: 20px;
+    z-index: 3;
+    top: -10px;
+    color: #FFF;
+    left: 1050px;
+    transition: all linear 0.5s;
+    /* background-color: bisque; */
+}
+
+.username:hover {
+    text-shadow: 4px 4px black;
+    transform: translate(-12px,-12px);
+}
+
+.name{
+    position: relative;
+    top:12px;
+}
+
+.Pause {
+    position: absolute;
+    z-index: 4;
+    height: 100px;
+    width: 100px;
+    border: #ff8200;
+    border-style: solid;
+    border-width: 5px;
+    top: 680px;
+    left: 0px;
+    font-size: 40px;
+    background-color: #ffc100;
+}
+
+.icon{
+    height: 100px;
+    width: 100px;
+    left: 280px;
+    bottom: 0px;
+    position: absolute;
+    z-index: 4;
+    animation-name: FadeIn;
+    animation-duration: 4s;
+    /* background-color: aqua; */
+    
+}
+
+  @keyframes rotate {
+    0% {
+        width: 1800px;
+    }
+    
+    100% {
+      width: 100px;
+    }
+  }
+
+  @keyframes rotate1 {
+    0% {
+        width: 1800px;
+        background-color: #ff8200;
+    }
+    50%{
+        background-color: #ff8200;
+    }70%{
+        background-color: #ff8200;
+    }
+    100% {
+      width: 100px;
+      background-color: #FFF;
+    }
+  }
+
+  @keyframes FadeIn {
+    0% {
+      opacity: 0;
+    }
+     50%{
+        opacity: 0;
+    }   
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translate(0px,0px);
+      /* opacity: 1; */
+    }
+    25%{
+        transform: translate(-15px,0);
+        /* opacity: 0; */
+    }  
+    50%{
+        transform: translate(0px,-15px);
+       /* opacity: 1; */
+    }
+    75%{
+        transform: translate(-15px,-15px);
+        /* opacity: 0; */
+    }
+    100% {
+      transform: translate(0px,0px);
+      /* opacity: 1; */
+    }
+  }

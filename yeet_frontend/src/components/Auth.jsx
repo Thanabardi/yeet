@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-
+import "../assets/auth.css"
+import Longinimg from "../photo/login2.PNG"
+import Create from "../photo/Register.png"
+import Create2 from "../photo/Register2.PNG"
 import axios from 'axios';
 import MusicPlayer from './MusicPlayer'
 
@@ -69,46 +72,62 @@ const Auth = () => {
   }
 
   return (
-    <div>
+    <div className='auth'>
       {isLogin ? 
       <div>
-        <h1>ID Please</h1>
+        <img src={Longinimg} alt='Login \' className='img'/>
+        {/* <h1>ID Please</h1> */}
         <form onSubmit={handleRegister}>
+          <div className='username-login'>
           <input 
             type="text" 
             name="username" 
             placeholder="Yeet Name"
             value={inputs.username || ""} 
             onChange={handleChange}
-          />
+            className= "login-input"
+            />
+            </div>
           <input 
             type="password" 
             name="password" 
-            placeholder="password"
+            placeholder="Password"
             value={inputs.password || ""} 
             onChange={handleChange}
+            className = "login-input"
           />
-          <button>LOG IN</button>
+          <div >
+          <button className='login-button'>LOG IN</button>
+          </div>
         </form>
+        <div className='login-sign'>
         New to Yeet?<button onClick={toggle}>SIGN UP</button>
+          </div>
       </div>
       :
       <div>
-        <h1>Create your Yeet ID</h1>
+        {/* <h1>Create your Yeet ID</h1> */}
+        {/* <img src={Create} alt='Create' className='img'/> */}
+        <img src={Create2} alt='Create2' className='img'/>
         <form onSubmit={handleSignUp}>
+          <div className='user-login2'>
+
           <input 
             type="text" 
             name="username" 
             placeholder="Yeet Name"
             value={inputs.username || ""} 
             onChange={handleChange}
-          />
+            className= "login-input"
+            />
+            </div>
           <input 
             type="password" 
             name="password" 
             placeholder="password"
             value={inputs.password || ""} 
             onChange={handleChange}
+            className = "login-input"
           />
           <input 
             type="email" 
@@ -119,11 +138,13 @@ const Auth = () => {
           />
           <button>SIGN UP</button>
         </form>
+        <div className='login-sign'>
         Already have one?<button onClick={toggle}>LOG IN</button>
+        </div>
       </div>
       }
-      <Link to={'/yeet'} state={'anonymous'}>Yeet anonymously?</Link>
-
+      <Link to={'/yeet'} state={'anonymous'} className='yeet'>Yeet anonymously?</Link>
+      
       <MusicPlayer audioType={"auth"} />
     </div>
   );

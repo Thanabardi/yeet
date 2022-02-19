@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import '../assets/rank.css';
+import back from '../photo/back.PNG'
 
 import axios from 'axios'
 
@@ -43,7 +45,7 @@ const Rank = () => {
     console.log("Result ", newArray);
 
   return (
-    <div>
+    <div className='rankbg'>
       <h1>Rank</h1>
       {location.state.type}
       <table>
@@ -66,7 +68,8 @@ const Rank = () => {
           })}
         </tbody>
       </table>
-      <Link to={'/yeet'} state={'anonymous'}>Done</Link>
+      <Link to={'/yeet'} state={'anonymous'}><img src={back} className='backbutton_rank'/></Link>
+      
       <MusicPlayer audioType={"rank"} />
     </div>
   );

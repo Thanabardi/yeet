@@ -1,9 +1,9 @@
 body {
   /* background-color: orange; */
-  background-image: url("../../media/background/main_menu_bg.jpg");
+  /* background-image: url("../../media/background/main_menu_bg.jpg"); */
   /* background-size: cover; */
   color: white;
-  font-family: Arial Rounded MT;
+  /* font-family: Arial Rounded MT; */
   text-align: center;
   height: 1080px;
   width: 1920px;
@@ -14,12 +14,32 @@ body {
   text-decoration: none;
   color: black;
   font-size: 50px;
-  font-weight: bold;
+  font-weight: 20em;
+  transition: all 1s ease;
 }
 .main-menu :hover {
   color: white;
-  text-shadow: 2px 2px yellow, 4px 4px red;
+  text-shadow:4px 4px #FFC100;
+  transform: translate(-12px,-12px) rotate(29.7deg);
+  
 }
 .main-menu :visited {
   color: black;
+}
+
+
+.main-menu2 :link {
+  text-decoration: none;
+  color: black;
+  font-size: 50px;
+  font-weight: bold;
+  transition: all 1s ease;
+}
+.main-menu2 :hover {
+  color: white;
+  text-shadow: 4px 4px #FFC100;
+  transform: translate(-12px,-12px) rotate(29.4deg);
+}
+.main-menu2 :visited {
+  color: white;
 }
