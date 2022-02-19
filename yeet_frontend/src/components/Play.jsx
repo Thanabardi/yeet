@@ -71,11 +71,13 @@ const Play = () => {
   function getScore(matchineCode, ID) {
     const interval = setInterval(() => {
       getSession(matchineCode, ID).then((data) => {
-      setplayerScore(data.session.score)
-      console.log("score", data.session.score)
-        if (data.session.score !== null || timeDelay < -10) {
-          clearInterval(interval)
-        }
+      if (timeDelay < 0) {
+        setplayerScore(data.session.score)
+        console.log("score", data.session.score)
+      }
+      if (data.session.score !== null || timeDelay < -10) {
+        clearInterval(interval)
+      }
       })
     }, 1000)
   }
@@ -96,8 +98,8 @@ const Play = () => {
       {timeDelay <= 0 && <h1>GO!</h1>}
 
       {/* score display */}
-      {(playerScore !== null && timeDelay < -1) && <h1>{ randomScore }</h1>}
-      {playerScore !== null && <h1>{ playerScore }</h1>}
+      {(playerScore !== null && timeDelay < 0 && timeDelay >= -4) && <h1>{ randomScore }</h1>}
+      {(playerScore !== null && timeDelay < -4) && <h1>{ playerScore }</h1>}
 
   
       {/* redirect to rank page */}
