@@ -43,6 +43,17 @@ const Profile = () => {
     })
   }, []);
 
+  function dateFormat() {
+    for (let i=0;i<rank.length;i++){
+      let tmp = new Date(rank[i].start);
+      let timeUTC = tmp.toString()
+      timeUTC = timeUTC.substring(0,21)
+      rank[i].start = timeUTC
+    
+    }
+    return rank
+  }
+
   return (
     <div className='profiles'>
       <img src={profiletitle}  alt='pro'className='profiletitle'/>
@@ -59,7 +70,7 @@ const Profile = () => {
         </tr>
         </thead>
         <tbody>
-          {rank.map((user, index) => {
+          {dateFormat().map((user, index) => {
             return (
               <tr key={index}>
                 <td>{user.score}</td>
