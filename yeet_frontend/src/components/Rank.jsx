@@ -31,15 +31,9 @@ const Rank = () => {
 
   function dateFormat() {
     for (let i=0;i<rank.length;i++){
-      console.log(rank[i].start)
       let tmp = new Date(rank[i].start);
-      // console.log(tmp)
-      let timeUTC = tmp.toUTCString()
-      // let timeFormat = timeUTC.toString()
-      // timeFormat = timeFormat.substring(0,15)
-      timeUTC = timeUTC.toString()
-      // timeUTC = timeUTC.substring(0,22)
-      console.log(timeUTC)
+      let timeUTC = tmp.toString()
+      timeUTC = timeUTC.substring(0,21)
       rank[i].start = timeUTC
     
     }
