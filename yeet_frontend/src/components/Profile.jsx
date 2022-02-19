@@ -46,7 +46,11 @@ const Profile = () => {
     <div className='profile'>
       <img src={profiletitle}  alt='pro'className='profiletitle'/>
       <div ><h1 className='name'>Yeet History</h1></div>
-      <table className='history'>
+
+      <div className='scroll1'>
+      <div text-align='center' className='scroll'>
+
+      <table text-align='center' className='history'>
         <thead>
         <tr>
           <td>Score</td>
@@ -60,10 +64,57 @@ const Profile = () => {
                 <td>{user.score}</td>
                 <td>{user.start}</td>
               </tr>
-            );
-          })}
+
+);
+})}
+          <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
         </tbody>
       </table>
+</div>
+</div>
       <Link to={'/yeet'} state={'anonymous'}><img src={back} alt='back' className='backbutton'/></Link>
       
       <MusicPlayer audioType={"profile"} />

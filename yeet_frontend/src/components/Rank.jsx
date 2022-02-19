@@ -46,8 +46,9 @@ const Rank = () => {
 
   return (
     <div className='rankbg'>
-      <h1>Rank</h1>
-      {location.state.type}
+      {/* <h1>Rank</h1>
+      {location.state.type} */}
+      <div className='ranktable'>
       <table>
         <thead>
         <tr>
@@ -68,6 +69,7 @@ const Rank = () => {
           })}
         </tbody>
       </table>
+      </div>
       <Link to={'/yeet'} state={'anonymous'}><img src={back} className='backbutton_rank'/></Link>
       
       <MusicPlayer audioType={"rank"} />
