@@ -167,7 +167,9 @@
   .main-link-logout{
       position: relative;
       bottom: 80px;
-      left: 200px;
+      left: 870px;
+      /* background-color: aqua; */
+      width: 400px;
   }
 
   .logout-button-menu{
@@ -202,7 +204,8 @@
     z-index:2;
     position: relative;
     bottom: 30px;
-    left: 130px;
+    left: 350px;
+     width: 1000px; 
     animation-name: FadeIn;
     animation-duration: 3s;
     transition-timing-function: linear;
@@ -273,14 +276,14 @@
   position: relative;
   font-size: 20px;
   z-index: 4;
-  width: 400px;
+  width: 450px;
   height: 200px;
   bottom: 1750px;
   text-align:center;
   animation-name: FadeIn;
   animation-duration: 4s;
   animation-timing-function: linear;
-  
+
 }
 
 
