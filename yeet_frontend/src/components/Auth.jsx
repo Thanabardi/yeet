@@ -12,26 +12,6 @@ const Auth = () => {
   const [isLogin, setIsLogin] = useState(true)
 
   const toggle = () => setIsLogin(!isLogin)
-  
-  // async function register(event){
-  //   event.preventDefault();
-  //   await axios.post(`/api/v2/register`, this.dataRegisterForm)
-  //           .then(response => {
-  //           this.login(response.data);
-  //           })
-  //           .catch(error => {
-  //           console.log(error)
-  //       })
-  // }
-
-  // async function login(data){
-  //   let token = data.token
-  //   this.$store.commit('setToken', token)
-  //   axios.defaults.headers.common["Authorization"] = "Token " + token
-  //   localStorage.setItem("token", token)
-  //   this.slug = data.calendar.slug
-  //   this.$router.push({ path: `/yeet/${this.slug}`})
-  // }
 
   const handleChange = (event) => {
     const name = event.target.name;
@@ -41,15 +21,20 @@ const Auth = () => {
 
   async function handleSignUp(event) {
     event.preventDefault();
-    const data = JSON.stringify({username : inputs.username, password : inputs.password, email : inputs.email})
+    const data = {"username" : inputs.username, "password" : inputs.password, "email" : inputs.email}
     console.log(data)
-    // await axios.post(`https://ecourse.cpe.ku.ac.th/exceed03/api/login/`, data)
-    //   .then(response => {
-    //     login(response.data);
-    //   })
-    //   .catch(error => {
-    //     console.log(error)
-    //   })
+    await axios.post(`https://ecourse.cpe.ku.ac.th/exceed03/api/register/`, data)
+      .then(response => {
+        if (response.data.msg === "account created") {
+          handleRegister(event);
+        } else {
+          window.alert("this account already exists.")
+        }
+      })
+      .catch(error => {
+        window.alert(error)
+        // console.log(error)
+      })
   }
 
   async function login(data) {
@@ -67,7 +52,8 @@ const Auth = () => {
         login(response.data);
       })
       .catch(error => {
-        console.log(error)
+        window.alert("Wrong username or password. Note that both fields may be case-sensitive")
+        // console.log(error)
       })
   }
 
