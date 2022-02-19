@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import '../assets/rank.css';
+import back from '../photo/back.PNG'
 
 import axios from 'axios'
 
@@ -11,7 +13,7 @@ const Rank = () => {
 
   async function getRank() {
     const res = await axios.get(
-      `https://ecourse.cpe.ku.ac.th/exceed03/api/room-status`
+      'https://ecourse.cpe.ku.ac.th/exceed03/api/room-status'
     )
     return res.data
   }
@@ -23,9 +25,7 @@ const Rank = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Rank</h1>
-      {location.state}
+    <div className='rankbg'>
       {rank}
       <table>
         <thead>
@@ -43,7 +43,7 @@ const Rank = () => {
           })} */}
         </tbody>
       </table>
-      <Link to={'/yeet'} state={'anonymous'}>Done</Link>
+      <Link to={'/yeet'} state={'anonymous'}><img src={back} className='backbutton_rank'/></Link>
     </div>
   );
 }

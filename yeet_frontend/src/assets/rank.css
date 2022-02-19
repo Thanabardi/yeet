@@ -1,0 +1,17 @@
+.rankbg{
+    background-image: url("../../media/background/rank_bg.PNG");
+    background-position: center;
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.backbutton_rank{
+    width: 300px;
+    margin-right: 1600px;
+    margin-top: 660px;
+    transition: all 0.25s ease;
+}
+.backbutton_rank:hover{
+    transform: translate(-8px,-8px);
+}

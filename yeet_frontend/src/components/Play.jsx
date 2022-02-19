@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import '../assets/play_style.css';
+import quickplay from "../photo/quickplay.PNG"
+import competitive from "../photo/competitive.PNG"
 
 const Play = () => {
   const playerScore = null
@@ -41,15 +44,19 @@ const Play = () => {
   }
 
   return (
-    <div>
-      <h1>Play</h1>
-      <h1>{location.state}</h1>
+    <div className='play'>
+      <h1>PLAY</h1>
+
+      {location.state === "Quick Play" && <img src={quickplay} className='quickplayimg'/>}
+      {location.state === "Competitive" && <img src={competitive} className='competitiveimg'/>}
+    
       {timeDelay > 0 ? <h2>{timeDelay}</h2> : <h1>GO!</h1>}
 
       {/* score display */}
       {(playerScore === null && ready && timeDelay < -1) && <h1>{ score }</h1>}
       {playerScore !== null && <div><h1>{ playerScore }</h1></div>}
 
+  
       {/* redirect to rank page */}
       {(playerScore !== null && location.state === "Competitive" && timeDelay < -8) && <Navigate to={'/rank'} state={'rank'} />}
       {/* redirect to main menu */}

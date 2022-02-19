@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import profiletitle from '../photo/profile.PNG';
+import back from '../photo/back.PNG';
 
 const Profile = () => {
   const location = useLocation()
@@ -21,10 +23,10 @@ const Profile = () => {
   }
 
   return (
-    <div>
-      <h1>Profile</h1>
-      <h1>{location.state}</h1>
-      <h1>Yeet Name</h1>
+    <div className='profile'>
+      <img src={profiletitle}  alt='pro'className='profiletitle'/>
+      <div className='yeetname'>
+      <div className='name'><h1>Yeet Name</h1></div>
       <form onSubmit={handleLogin}>
         <input 
           type="text" 
@@ -32,11 +34,18 @@ const Profile = () => {
           placeholder="Yeet Name"
           value={inputs.username || ""} 
           onChange={handleChange}
+          className='changename'
         />
-        <button>Change</button>
+      <div>
+
+        <button className='changebutton'>Change</button>
+      </div>
       </form>
-      <h1>Yeet History</h1>
-      <table>
+      </div>
+
+
+      <div className='name'><h1>Yeet History</h1></div>
+      <table className='history'>
         <thead>
           <td>Time</td>
           <td>Score</td>
@@ -52,7 +61,7 @@ const Profile = () => {
           })} */}
         </tbody>
       </table>
-      <Link to={'/yeet'} state={'anonymous'}>Done</Link>
+      <Link to={'/yeet'} state={'anonymous'}><img src={back} alt='back' className='backbutton'/></Link>
     </div>
   );
 }
