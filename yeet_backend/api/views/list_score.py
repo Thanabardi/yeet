@@ -18,5 +18,5 @@ class ListScore(APIView):
 class PersonalListScore(APIView):
     """Get list of personal score records"""
     def get(self, request, user_id):
-        session = Session.objects.filter(id=user_id).order_by('-score').exclude(score__isnull=True)
+        session = Session.objects.filter(user__id=user_id).order_by('-score').exclude(score__isnull=True)
         return Response({"score": ScoreSerializer(session, many=True).data})
