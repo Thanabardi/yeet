@@ -11,7 +11,7 @@ from api.constants import *
 class ListScore(APIView):
     """Get list of score with specified length"""
     def get(self, request, length=DEFAULT_SCORE_LIST_LENGTH):
-        sessions = Session.objects.order_by('-score').exclude(score__isnull=True)
+        sessions = Session.objects.order_by('-score').exclude(score__isnull=True).exclude(user__isnull=True)
         sessions = sessions[:min(int(length), len(sessions))]
         return Response({"score": ScoreSerializer(sessions, many=True).data})
 
