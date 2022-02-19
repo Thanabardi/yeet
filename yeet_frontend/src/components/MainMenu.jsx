@@ -76,9 +76,9 @@ const Menu = () => {
 
    
 
-      <div className="username">
-          <h1 className='name'>{location.state}</h1>
-          {location.state==="anonymous"&&<img src={icon} alt="anonymous"  className='icon'/>}
+      <div className = "username">
+          <h1 className = 'name'>{location.state}</h1>
+          {userData? <img src={icon} alt='userData.user.username' className='icon'/> : <img src={icon} alt="anonymous"  className='icon'/>}
       </div>
 
       {/* <div className="Pause">

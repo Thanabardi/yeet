@@ -23,7 +23,7 @@ const Play = () => {
   async function getSession(matchineCode, id) {
     const res = await axios.get(
       `https://ecourse.cpe.ku.ac.th/exceed03/api/play/get-session/${matchineCode}/frontend/${id}/`)
-      // console.log(res.data)
+      // console.log("session", res.data)
     return res.data
   }
 
@@ -32,10 +32,11 @@ const Play = () => {
     if (location.state.userData && location.state.type === "Competitive") {
       data = {"token" : location.state.userData.token, "machine_code" : matchineCode}
     }
-    console.log(data)
+    // console.log(data)
     await axios.post(`https://ecourse.cpe.ku.ac.th/exceed03/api/play/start-session/`, data)
       .then(response => {
-        // console.log(response.data)
+        // console.log("sent ready", response.data.session.machine_code, response.data.session.id)
+        getScore(response.data.session.machine_code, response.data.session.id)        
       })
       .catch(error => {
         console.log(error)
@@ -51,7 +52,9 @@ const Play = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeDelay(timeDelay-=1)
-      return () => clearInterval(interval);
+      if (timeDelay < -10) {
+        clearInterval(interval);
+      }
     }, 1240);
   }, []);
 
@@ -66,18 +69,17 @@ const Play = () => {
   }, []);
 
 
-  useEffect(() => {
-      const interval = setInterval(() => {
-        getSession("test", 9).then((data) => {
-        setplayerScore(data.session.score)
-        // console.log("score", data.session.score)
-          if (data.session.score !== null) {
-            clearInterval(interval)
-          }
-        })
-      }, 1000)
-  }, []);
-
+  function getScore(matchineCode, ID) {
+    const interval = setInterval(() => {
+      getSession(matchineCode, ID).then((data) => {
+      setplayerScore(data.session.score)
+      console.log("score", data.session.score)
+        if (data.session.score !== null || timeDelay < -10) {
+          clearInterval(interval)
+        }
+      })
+    }, 1000)
+  }
 
   function randomNum(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
