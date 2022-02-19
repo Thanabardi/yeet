@@ -13,19 +13,19 @@ const MusicPlayer = ({ audioType }) => {
                                 "composer": "Lunatic Sounds"
                                 },
                         "rank": {
-                                "path": "/music/Kindness_7mai.mp3", 
-                                "musicName": "Kindness", 
-                                "composer": "7mai"
+                                "path": "/music/Liquid_DnB_Divergence_Nego_tiator.mp3", 
+                                "musicName": "Liquid DnB Divergence", 
+                                "composer": "Nego_tiator"
                                 },
                         "profile": {
-                                "path": "/music/Bring_Back_The_Beat _Lunatic_Sounds.mp3", 
-                                "musicName": "Bring Back The Beat", 
-                                "composer": "Lunatic Sounds"
+                                "path": "/music/Liquid_DnB_Divergence_Nego_tiator.mp3", 
+                                "musicName": "Liquid DnB Divergence", 
+                                "composer": "Nego_tiator"
                                 },
                         "auth": {
-                                "path": "/music/Bring_Back_The_Beat _Lunatic_Sounds.mp3", 
-                                "musicName": "Bring Back The Beat", 
-                                "composer": "Lunatic Sounds"
+                                "path": "/music/Q.E.F._【落選供養】_k.key.mp3", 
+                                "musicName": "Q.E.F.【落選供養】", 
+                                "composer": "k.key.mp3"
                                 },
                         }
     let audio = useRef();
