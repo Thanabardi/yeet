@@ -50,3 +50,15 @@
     /* color: black; */
     font-size: 40px;
 }
+
+.rank-username{
+    padding-right: 40px;
+}
+
+.rank-score{
+    padding-right: 40px;
+}
+
+.rank-start{
+    padding-right: 50px;
+}

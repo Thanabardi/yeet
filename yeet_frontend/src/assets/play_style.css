@@ -6,7 +6,7 @@
 }
 
 .quickplayimg{
-    margin-top: -60px;
+    margin-top: 0px;
     width: 650px;
 }
 
@@ -86,7 +86,7 @@
     color: #fffaaa;
     overflow-y: scroll;
     max-width: 1000px;
-    max-height: 500px;
+    max-height: 250px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -102,4 +102,54 @@
 .scroll::-webkit-scrollbar-thumb {
     background-color: rgb(209, 209, 209);
     border-radius: 100px;
+}
+
+
+.first{
+    position: relative;
+    left: 130px;
+    padding-right: 280px;
+}
+.play-count{
+    position: relative;
+    bottom: 80px;
+    font-size: 160px;
+    animation-name: number;
+
+    animation-duration: 1.24s;
+    animation-timing-function: linear;
+    opacity: 0;
+    animation-iteration-count: infinite;
+}
+
+.play-count-go{
+    position: relative;
+    bottom: 80px;
+    font-size: 160px;
+}
+
+.play-music{
+    position:absolute;
+    /* top: 500px; */
+    top:750px;
+    left: 470px;
+}
+
+.play-rand{
+    position: relative;
+    bottom: 300px;
+    font-size: 150px;
+}
+
+@keyframes  number{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
 }

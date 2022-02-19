@@ -65,7 +65,7 @@ const Profile = () => {
       <table text-align='center' className='history'>
         <thead>
         <tr>
-          <td>Score</td>
+          <td className='first'>Score</td>
           <td>Time</td>
         </tr>
         </thead>
@@ -73,14 +73,14 @@ const Profile = () => {
           {dateFormat().map((user, index) => {
             return (
               <tr key={index}>
-                <td>{user.score}</td>
+                <td className='first'>{user.score}</td>
                 <td>{user.start}</td>
               </tr>
 
 );
 })}
           
-               
+          
         </tbody>
       </table>
 </div>

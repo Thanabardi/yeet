@@ -8,6 +8,6 @@
 
     max-height: 600px;
     max-width: 1500px;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
 }

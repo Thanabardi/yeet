@@ -27,6 +27,16 @@ const MusicPlayer = ({ audioType }) => {
                                 "musicName": "Bring Back The Beat", 
                                 "composer": "Lunatic Sounds"
                                 },
+                        "count":{
+                                "path": "/music/count.mp4",
+                                "musicName": "count",
+                                "composer": "Lunatic Sounds"
+                        },
+                        "smash":{
+                            "path":"/music/smash.mp3",
+                            "musicName": "smash",
+                            "composer":"Lunaric Sounds"
+                        }
                         }
     let audio = useRef();
 
@@ -72,11 +82,18 @@ const MusicPlayer = ({ audioType }) => {
             audio.current.pause();
         }
     }
-    
+    if(audioList[audioType].musicName!="smash"){
     return (
+        
         <div >
            Now playing {audioList[audioType].musicName} by {audioList[audioType].composer}
         </div>
+        
     )
+}else{
+    return(
+        <div></div>
+    )
+}
 }
 export default MusicPlayer;
