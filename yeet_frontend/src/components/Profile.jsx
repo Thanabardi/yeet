@@ -5,7 +5,7 @@ import profiletitle from '../photo/profile.PNG';
 import back from '../photo/back.PNG';
 
 import axios from 'axios'
-
+import '../assets/play_style.css'
 import MusicPlayer from './MusicPlayer'
 
 const Profile = () => {
@@ -45,30 +45,14 @@ const Profile = () => {
   return (
     <div className='profile'>
       <img src={profiletitle}  alt='pro'className='profiletitle'/>
-      <div className='yeetname'>
-      <div className='name'><h1>Yeet Name</h1></div>
-      <form onSubmit={handleLogin}>
-        <input 
-          type="text" 
-          name="username" 
-          placeholder="Yeet Name"
-          value={inputs.username || ""} 
-          onChange={handleChange}
-          className='changename'
-        />
-      <div>
+      <div ><h1 className='name'>Yeet History</h1></div>
 
-        <button className='changebutton'>Change</button>
-      </div>
-      </form>
-      </div>
+      <div className='scroll1'>
+      <div text-align='center' className='scroll'>
 
-
-      <div className='name'><h1>Yeet History</h1></div>
-      <table className='history'>
+      <table text-align='center' className='history'>
         <thead>
         <tr>
-          <td>User</td>
           <td>Score</td>
           <td>Time</td>
         </tr>
@@ -77,14 +61,60 @@ const Profile = () => {
           {rank.map((user, index) => {
             return (
               <tr key={index}>
-                <td>{user.username}</td>
                 <td>{user.score}</td>
                 <td>{user.start}</td>
               </tr>
-            );
-          })}
+
+);
+})}
+          <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
+              <tr>
+                  <td>eiei</td>
+                  <td>eiei</td>
+              </tr>
         </tbody>
       </table>
+</div>
+</div>
       <Link to={'/yeet'} state={'anonymous'}><img src={back} alt='back' className='backbutton'/></Link>
       
       <MusicPlayer audioType={"profile"} />

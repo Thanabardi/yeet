@@ -21,8 +21,10 @@
 .profile{
     background-color: #ff8200;
     position: fixed;
-    min-width: 100%;
     min-height: 100%;
+    min-width: 100%;
+    background-size: cover;
+
 }
 
 .profiletitle{
@@ -34,7 +36,10 @@
 }
 
 .name{
-    font-size: 25px;
+    font-size: 50px;
+    position: relative;
+    margin-top: -150px;
+    
 }
 
 .changename{
@@ -73,4 +78,28 @@
     margin-top: 120px;
     margin-right: 120px;
     color: white;
+}
+
+.scroll{
+    font-size: 40px;
+    text-align: center;
+    color: #fffaaa;
+    overflow-y: scroll;
+    max-width: 1000px;
+    max-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.scroll::-webkit-scrollbar {
+    width: 16px;
+}
+ 
+.scroll::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 100px;
+}
+ 
+.scroll::-webkit-scrollbar-thumb {
+    background-color: rgb(209, 209, 209);
+    border-radius: 100px;
 }
