@@ -13,3 +13,10 @@ class ListScore(APIView):
         sessions = Session.objects.order_by('-score').exclude(score__isnull=True)
         sessions = sessions[:min(int(length), len(sessions))]
         return Response({"score": ScoreSerializer(sessions, many=True).data})
+
+
+class PersonalListScore(APIView):
+    """Get list of personal score records"""
+    def get(self, request, user_id):
+        session = Session.objects.filter(id=user_id).order_by('-score').exclude(score__isnull=True)
+        return Response({"score": ScoreSerializer(session, many=True).data})
