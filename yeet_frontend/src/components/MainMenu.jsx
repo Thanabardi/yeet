@@ -53,7 +53,7 @@ const Menu = () => {
         <Link to={'/play'} state={'Quick Play'} className="main-quickplay">QUICK PLAY</Link>
         </div>
         <div className='main-link-profile'> 
-          {userData ? <Link to={'/profile'} state={'Profile'}>Profile</Link> : <p>Profile</p>}
+          {userData && <Link to={'/profile'} state={'Profile'}>PROFILE</Link> }
         </div>
       </div>
       <div className='fade'>
@@ -61,23 +61,28 @@ const Menu = () => {
         </div>
       <div className="box2">
         <div className="main-link-com">
-          {userData ? <Link to={'/play'} state={{'type': 'Competitive', 'userData': userData}}>Competitive</Link> : <p>Competitive</p>}
+          <div className='main-com'>
+               {userData && <Link to={'/play'} state={{'type': 'Competitive', 'userData': userData}}>COMPETITIVE</Link> }
+          </div>
         </div>
       </div>
       <div className="box3">
         <div className="main-link-rank">
-          <Link to={'/rank'} state={{'type': 'Rank', 'userData': userData}}>Rank</Link>
+          <Link to={'/rank'} state={{'type': 'Rank', 'userData': userData}}>RANK</Link>
         </div>
         <div className="main-link-logout">
-          <button onClick={logout}>{userData ? 'Logout' : 'Sign Up'}</button>
+          <button onClick={logout} className='logout-button-menu'>{userData ? 'LOGOUT' : 'SIGN UP'}</button>
         </div>
       </div>
+      {/* <div className='fade'>
+        <img src={yeet} alt="cat" className='logo' width="972px"  height="393px"  /> 
+        </div> */}
       <div className="box4"></div>
 
    
 
       <div className="username">
-          <h1 className='name'>{location.state}</h1>
+          <h1 className='menu-name'>{location.state}</h1>
           {location.state==="anonymous"&&<img src={icon} alt="anonymous"  className='icon'/>}
       </div>
 

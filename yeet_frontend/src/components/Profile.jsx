@@ -5,7 +5,7 @@ import profiletitle from '../photo/profile.PNG';
 import back from '../photo/back.PNG';
 
 import axios from 'axios'
-
+import '../assets/play_style.css'
 import MusicPlayer from './MusicPlayer'
 
 const Profile = () => {
@@ -45,30 +45,10 @@ const Profile = () => {
   return (
     <div className='profile'>
       <img src={profiletitle}  alt='pro'className='profiletitle'/>
-      <div className='yeetname'>
-      <div className='name'><h1>Yeet Name</h1></div>
-      <form onSubmit={handleLogin}>
-        <input 
-          type="text" 
-          name="username" 
-          placeholder="Yeet Name"
-          value={inputs.username || ""} 
-          onChange={handleChange}
-          className='changename'
-        />
-      <div>
-
-        <button className='changebutton'>Change</button>
-      </div>
-      </form>
-      </div>
-
-
-      <div className='name'><h1>Yeet History</h1></div>
+      <div ><h1 className='name'>Yeet History</h1></div>
       <table className='history'>
         <thead>
         <tr>
-          <td>User</td>
           <td>Score</td>
           <td>Time</td>
         </tr>
@@ -77,7 +57,6 @@ const Profile = () => {
           {rank.filter(user => user.username.includes(userData.user.username)).map((user, index) => {
             return (
               <tr key={index}>
-                <td>{user.username}</td>
                 <td>{user.score}</td>
                 <td>{user.start}</td>
               </tr>
