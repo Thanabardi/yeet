@@ -115,14 +115,18 @@ const Auth = () => {
             onChange={handleChange}
             className = "login-input"
           />
+          <div>
+
           <input 
             type="email" 
             name="email" 
             placeholder="email"
             value={inputs.email || ""} 
             onChange={handleChange}
-          />
-          <button>SIGN UP</button>
+            className = "login-input"
+            />
+            </div>
+          <button className='login-button'>SIGN UP</button>
         </form>
         <div className='login-sign'>
         Already have one?<button onClick={toggle}>LOG IN</button>
