@@ -81,15 +81,15 @@ const Menu = () => {
 
    
 
-      <div className="username">
-          <h1 className='menu-name'>{location.state}</h1>
-          {userData? <img src={icon} alt='userData.user.username' className='icon'/> : <img src={icon} alt="anonymous"  className='icon'/>}
-      </div>
+      
 
       {/* <div className="Pause">
           <AudioPlayer audioPath={"/METATRON _SHIKI.mp3"} className="Pause-but"/>
       </div> */}
-        <MusicPlayer audioType={"menu"} />
+
+      <div className="song">
+        <MusicPlayer audioType={"menu"}/>
+      </div>
     </div>
     
   );

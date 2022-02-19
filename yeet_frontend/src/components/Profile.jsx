@@ -6,6 +6,7 @@ import back from '../photo/back.PNG';
 
 import axios from 'axios'
 import '../assets/play_style.css'
+import '../assets/test.css'
 import MusicPlayer from './MusicPlayer'
 
 const Profile = () => {
@@ -43,7 +44,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className='profile'>
+    <div className='profiles'>
       <img src={profiletitle}  alt='pro'className='profiletitle'/>
       <div ><h1 className='name'>Yeet History</h1></div>
 
@@ -67,50 +68,8 @@ const Profile = () => {
 
 );
 })}
-          <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
-              <tr>
-                  <td>eiei</td>
-                  <td>eiei</td>
-              </tr>
+          
+               
         </tbody>
       </table>
 </div>

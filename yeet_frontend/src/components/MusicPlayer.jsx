@@ -74,7 +74,7 @@ const MusicPlayer = ({ audioType }) => {
     }
     
     return (
-        <div>
+        <div >
             playing {audioList[audioType].musicName} by {audioList[audioType].composer}
         </div>
     )
