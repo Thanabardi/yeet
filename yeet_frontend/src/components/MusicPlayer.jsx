@@ -13,9 +13,9 @@ const MusicPlayer = ({ audioType }) => {
                                 "composer": "Lunatic Sounds"
                                 },
                         "rank": {
-                                "path": "/music/Bring_Back_The_Beat _Lunatic_Sounds.mp3", 
-                                "musicName": "Bring Back The Beat", 
-                                "composer": "Lunatic Sounds"
+                                "path": "/music/Kindness_7mai.mp3", 
+                                "musicName": "Kindness", 
+                                "composer": "7mai"
                                 },
                         "profile": {
                                 "path": "/music/Bring_Back_The_Beat _Lunatic_Sounds.mp3", 
