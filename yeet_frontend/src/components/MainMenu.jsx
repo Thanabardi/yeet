@@ -50,7 +50,7 @@ const Menu = () => {
       
       <div className="box">
         <div className='main-link-quckplay'> 
-        <Link to={'/play'} state={'Quick Play'} className="main-quickplay">QUICK PLAY</Link>
+        <Link to={'/play'} state={{'type': 'Quick Play', 'userData': null}} className="main-quickplay">QUICK PLAY</Link>
         </div>
         <div className='main-link-profile'> 
           {userData && <Link to={'/profile'} state={'Profile'}>PROFILE</Link> }
@@ -80,7 +80,6 @@ const Menu = () => {
       <div className="box4"></div>
 
    
-
       <div className="username">
           <h1 className='menu-name'>{location.state}</h1>
           {userData? <img src={icon} alt='userData.user.username' className='icon'/> : <img src={icon} alt="anonymous"  className='icon'/>}

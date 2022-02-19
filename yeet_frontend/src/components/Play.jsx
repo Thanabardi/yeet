@@ -15,7 +15,7 @@ const Play = () => {
 
   let [playerScore, setplayerScore] = useState(null)
   let [randomScore, setRandomScore] = useState()
-  let [timeDelay, setTimeDelay] = useState(21)
+  let [timeDelay, setTimeDelay] = useState(5)
   // console.log(location.state)
 
 
@@ -34,7 +34,7 @@ const Play = () => {
     // console.log(data)
     await axios.post(`https://ecourse.cpe.ku.ac.th/exceed03/api/play/start-session/`, data)
       .then(response => {
-        // console.log("sent ready", response.data.session.machine_code, response.data.session.id)
+        console.log("sent ready", response.data.session.machine_code, response.data.session.id)
         getScore(response.data.session.machine_code, response.data.session.id)        
       })
       .catch(error => {
@@ -51,6 +51,7 @@ const Play = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeDelay(timeDelay-=1)
+      // console.log(timeDelay)
       if (timeDelay < -10) {
         clearInterval(interval);
       }
@@ -71,11 +72,9 @@ const Play = () => {
   function getScore(matchineCode, ID) {
     const interval = setInterval(() => {
       getSession(matchineCode, ID).then((data) => {
-      if (timeDelay < 0) {
         setplayerScore(data.session.score)
         console.log("score", data.session.score)
-      }
-      if (data.session.score !== null || timeDelay < -10) {
+      if (data.session.score !== null) {
         clearInterval(interval)
       }
       })
@@ -108,8 +107,8 @@ const Play = () => {
       {(playerScore !== null && location.state.type === "Quick Play" && timeDelay < -8) && <Navigate to={'/yeet'} />}
 
       {/* check error */}
-      {(playerScore === null && timeDelay < -8) && <h1>Error, Please Yeet Again</h1>}
-      {(playerScore === null && timeDelay < -10) && <Navigate to={'/yeet'} />}
+      {/* {timeDelay < -10 && <h1>Error, Please Yeet Again</h1>}
+      {timeDelay < -12 && <Navigate to={'/yeet'} />} */}
       
       <MusicPlayer audioType={"play"} />
     </div>
