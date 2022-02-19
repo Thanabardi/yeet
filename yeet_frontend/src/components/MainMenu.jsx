@@ -50,7 +50,7 @@ const Menu = () => {
       
       <div className="box">
         <div className='main-link-quckplay'> 
-        <Link to={'/play'} state={'Quick Play'} className="main-quickplay">QUICK PLAY</Link>
+        <Link to={'/play'} state={{'type': 'Quick Play', 'userData': null}} className="main-quickplay">QUICK PLAY</Link>
         </div>
         <div className='main-link-profile'> 
           {userData && <Link to={'/profile'} state={'Profile'}>PROFILE</Link> }
@@ -78,14 +78,6 @@ const Menu = () => {
         <img src={yeet} alt="cat" className='logo' width="972px"  height="393px"  /> 
         </div> */}
       <div className="box4"></div>
-
-   
-
-      
-
-      {/* <div className="Pause">
-          <AudioPlayer audioPath={"/METATRON _SHIKI.mp3"} className="Pause-but"/>
-      </div> */}
 
       <div className="song">
         <MusicPlayer audioType={"menu"}/>
