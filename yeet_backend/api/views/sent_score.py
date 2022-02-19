@@ -11,7 +11,7 @@ from datetime import datetime
 class SentScore(APIView):
     """Send score and end session after score is sent"""
     @csrf_exempt
-    def put(self, request):
+    def post(self, request):
         session_id = request.data["session_id"]
         machine_code = request.data["machine_code"]
         score = request.data["score"]
