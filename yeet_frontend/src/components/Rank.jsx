@@ -26,29 +26,31 @@ const Rank = () => {
     setRank(data.score)
     console.log("this", data.score)
 
-    // const uniq = [...new Map(rank.map(item => [JSON.stringify(item).substring(0, 22), item])).values()];
     })
   }, []);
 
-  function removeDuplicate(arr, prop) {
-    var new_arr = [];
-    var lookup = {};
-    for (var i in arr) {
-        lookup[arr[i][prop]] = arr[i];
+  function dateFormat() {
+    for (let i=0;i<rank.length;i++){
+      console.log(rank[i].start)
+      let tmp = new Date(rank[i].start);
+      // console.log(tmp)
+      let timeUTC = tmp.toUTCString()
+      // let timeFormat = timeUTC.toString()
+      // timeFormat = timeFormat.substring(0,15)
+      timeUTC = timeUTC.toString()
+      // timeUTC = timeUTC.substring(0,22)
+      console.log(timeUTC)
+      rank[i].start = timeUTC
+    
     }
-    for (i in lookup) {
-        new_arr.push(lookup[i]);
-    }
-    return new_arr
-    }
-    var newArray = removeDuplicate(rank, 'username');
-    console.log("Result ", newArray);
+    return rank
+  }
 
   return (
     <div className='rankbg'>
       <h1>Rank</h1>
       {location.state.type}
-      <table>
+      <table className='ranktb'>
         <thead>
         <tr>
           <td>User</td>
@@ -57,7 +59,9 @@ const Rank = () => {
         </tr>
         </thead>
         <tbody>
-          {rank.filter(user => user.username.includes('s')).map((user, index) => {
+          {dateFormat().filter(user => user.username.includes('s')).map((user, index) => {
+            // let date = user.start;
+            // let UTCdate = date.toUTCString();
             return (
               <tr key={index}>
                 <td>{user.username}</td>
