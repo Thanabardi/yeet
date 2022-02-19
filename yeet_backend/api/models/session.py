@@ -19,6 +19,9 @@ class Session(models.Model):
     def machine_code(self):
         return self.machine.machine_code
 
+    def done(self):
+        return int(self.is_done)
+
     def username(self):
         if self.user is None:
             return "Anonymous"

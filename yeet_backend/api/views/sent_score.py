@@ -31,7 +31,7 @@ class SentScore(APIView):
                 session.save()
                 # find winner
                 is_winner = (session.score > max_session.score)
-                return Response({"msg": "ok", "is_winner": is_winner})
+                return Response({"msg": "ok", "is_winner": int(is_winner)})
             else:
                 return Response({"msg": "invalid machine code or session is already done"}, HTTP_400_BAD_REQUEST)
         

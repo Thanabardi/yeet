@@ -8,7 +8,7 @@ class SessionSerializer(serializers.ModelSerializer):
         fields = (
             "id",
             "logged_in",
-            "is_done",
+            "done",
             "machine_code",
             "start",
             "end",
