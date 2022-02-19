@@ -11,7 +11,6 @@ import MusicPlayer from './MusicPlayer'
 const Play = () => {
   const matchineCode = "test"
 
-  const ready = false
   const location = useLocation()
 
   let [playerScore, setplayerScore] = useState(null)
@@ -107,8 +106,8 @@ const Play = () => {
       {(playerScore !== null && location.state.type === "Quick Play" && timeDelay < -8) && <Navigate to={'/yeet'} />}
 
       {/* check error */}
-      {(playerScore === null && !ready  && timeDelay < -8) && <h1>Error, Please Yeet Again</h1>}
-      {(playerScore === null && !ready  && timeDelay < -10) && <Navigate to={'/yeet'} />}
+      {(playerScore === null && timeDelay < -8) && <h1>Error, Please Yeet Again</h1>}
+      {(playerScore === null && timeDelay < -10) && <Navigate to={'/yeet'} />}
       
       <MusicPlayer audioType={"play"} />
     </div>
