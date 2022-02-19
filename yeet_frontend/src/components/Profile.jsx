@@ -30,7 +30,7 @@ const Profile = () => {
 
   async function getRank() {
     const res = await axios.get(
-      `https://ecourse.cpe.ku.ac.th/exceed03/api/play/list-score/`)
+      `https://ecourse.cpe.ku.ac.th/exceed03/api/play/score/${userData.user.id}/`)
       // console.log(res.data)
     return res.data
   }
@@ -74,7 +74,7 @@ const Profile = () => {
         </tr>
         </thead>
         <tbody>
-          {rank.filter(user => user.username.includes(userData.user.username)).map((user, index) => {
+          {rank.map((user, index) => {
             return (
               <tr key={index}>
                 <td>{user.username}</td>
