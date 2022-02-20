@@ -32,7 +32,7 @@ const Auth = () => {
         }
       })
       .catch(error => {
-        window.alert(error)
+        window.alert("this account already exists.")
         // console.log(error)
       })
   }
@@ -72,6 +72,7 @@ const Auth = () => {
             value={inputs.username || ""} 
             onChange={handleChange}
             className= "login-input"
+            required
             />
             </div>
           <input 
@@ -81,6 +82,7 @@ const Auth = () => {
             value={inputs.password || ""} 
             onChange={handleChange}
             className = "login-input"
+            required
           />
           <div >
           <button className='login-button'>LOG IN</button>
@@ -105,6 +107,7 @@ const Auth = () => {
             value={inputs.username || ""} 
             onChange={handleChange}
             className= "login-input"
+            required
             />
             </div>
           <input 
@@ -114,6 +117,7 @@ const Auth = () => {
             value={inputs.password || ""} 
             onChange={handleChange}
             className = "login-input"
+            required
           />
           <div>
 
@@ -124,6 +128,7 @@ const Auth = () => {
             value={inputs.email || ""} 
             onChange={handleChange}
             className = "login-input"
+            required
             />
             </div>
           <button className='login-button'>SIGN UP</button>

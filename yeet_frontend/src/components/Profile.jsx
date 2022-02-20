@@ -23,7 +23,7 @@ const Profile = () => {
     setInputs(values => ({...values, [name]: value}))
   }
 
-  async function handleLogin(event) {
+  async function handleNameChange(event) {
     event.preventDefault();
     console.log(inputs.username, inputs.password)
     return window.location.reload();
