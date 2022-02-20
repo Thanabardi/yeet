@@ -4,7 +4,7 @@
 .main {
     overflow:hidden;
     max-width: 1450px;
-     max-height: 850px; 
+    max-height: 850px; 
     text-align: center;
 
 }
@@ -206,6 +206,7 @@
     bottom: 30px;
     left: 350px;
      width: 1000px; 
+     
     animation-name: FadeIn;
     animation-duration: 3s;
     transition-timing-function: linear;
@@ -219,6 +220,7 @@
      transition-timing-function: linear;
      animation-iteration-count: infinite;
      animation-duration: 0.3s;
+     /* animation-duration: 4s; */
  }
 
 .username{

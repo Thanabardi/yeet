@@ -85,21 +85,39 @@ const Play = () => {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  console.log(timeDelay);
+
   return (
     <div className='play'>
-      <h1>PLAY</h1>
+      {/* <h1>PLAY</h1> */}
 
       {location.state.type === "Quick Play" && <img src={quickplay} className='quickplayimg'/>}
-      {location.state.type === "Competitive" && <img src={competitive} className='competitiveimg'/>}
+      {location.state.type === "Competitive" && <img src={competitive} className='quickplayimg'/>}
 
       {timeDelay > 10 && <h1>Ready?</h1>}
-      {timeDelay > 0 && timeDelay <= 10 && <h2>{timeDelay}</h2>}
-      {timeDelay <= 0 && <h1>GO!</h1>}
+      {timeDelay > 0 && timeDelay <= 10 && <div><h2 className='play-count'>{timeDelay}</h2>
+      <MusicPlayer audioType={"count"}/>
+      </div>}
 
+
+      {timeDelay <= 0&& timeDelay >=-3 && 
+      <div className='play-music'>
+        <MusicPlayer audioType={"smash"}/>
+        </div>
+        }
+     
+      {timeDelay <= 0 && 
+      <div>
+      <h1 className='play-count-go'>SMASH!</h1>
+      
+      </div>
+      }
+      
       {/* score display */}
-      {(playerScore !== null && timeDelay < 0 && timeDelay >= -4) && <h1>{ randomScore }</h1>}
-      {(playerScore !== null && timeDelay < -4) && <h1>{ playerScore }</h1>}
-
+      {(playerScore !== null && timeDelay < 0 && timeDelay >= -4) && <h1 className='play-rand'>{ randomScore }</h1>}
+      {(playerScore !== null && timeDelay < -4) && <h1 className='play-rand'>{ playerScore } </h1>}
+    
+      
   
       {/* redirect to rank page */}
       {(playerScore !== null && location.state.type === "Competitive" && timeDelay < -8) && <Navigate to={'/rank'} state={{'type': 'Rank', 'userData': location.state.userData}} />}
@@ -109,8 +127,11 @@ const Play = () => {
       {/* check error */}
       {/* {timeDelay < -10 && <h1>Error, Please Yeet Again</h1>}
       {timeDelay < -12 && <Navigate to={'/yeet'} />} */}
+
+      {timeDelay<=-3&&<div className="play-music">
+        <MusicPlayer audioType={"play"} />
+      </div>}
       
-      <MusicPlayer audioType={"play"} />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import Auth from './components/Auth'
 import Play from './components/Play'
 import Rank from './components/Rank'
 import Profile from './components/Profile'
+import Title from './components/Title';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/play" element={<Play />} />
         <Route path="/rank" element={<Rank />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/title" element={<Title />}/>
         {/* <Route path="/recipes/:recipeID" element={<Recipes />} /> */}
         <Route path="*" element={<Navigate to="yeet" />} />
       </Routes>

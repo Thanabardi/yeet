@@ -40,7 +40,7 @@ const Auth = () => {
   async function login(data) {
     sessionStorage.setItem('userData', JSON.stringify(data))
     // console.log(JSON.parse(sessionStorage.getItem('userData')))
-    return window.location = "/yeet" 
+    return window.location = "/title" 
   }
 
   async function handleRegister(event) {
@@ -133,7 +133,7 @@ const Auth = () => {
         </div>
       </div>
       }
-      <Link to={'/yeet'} state={'anonymous'} className='yeet'>Yeet anonymously?</Link>
+      <Link to={'/title'} state={'anonymous'} className='yeet'>Yeet anonymously?</Link>
       
       <MusicPlayer audioType={"auth"} />
     </div>

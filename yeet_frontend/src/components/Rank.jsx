@@ -51,9 +51,9 @@ const Rank = () => {
       <table className='ranktb'> */}
         <thead>
         <tr className='head'>
-          <td>User</td>
-          <td>Score</td>
-          <td>Time</td>
+          <td className='rank-username'>User</td>
+          <td className='rank-score'>Score</td>
+          <td className='rank-start'>Time</td>
         </tr>
         </thead>
         <tbody>
@@ -62,9 +62,9 @@ const Rank = () => {
             // let UTCdate = date.toUTCString();
             return (
               <tr key={index}>
-                <td>{user.username}</td>
-                <td>{user.score}</td>
-                <td>{user.start}</td>
+                <td className='rank-username'>{user.username}</td>
+                <td className='rank-score'>{user.score}</td>
+                <td className='rank-start'>{user.start}</td>
               </tr>
             );
           })}
