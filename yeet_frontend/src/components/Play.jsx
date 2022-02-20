@@ -72,8 +72,10 @@ const Play = () => {
   function getScore(matchineCode, ID) {
     const interval = setInterval(() => {
       getSession(matchineCode, ID).then((data) => {
-        setplayerScore(data.session.score)
-        console.log("score", data.session.score)
+      if(timeDelay <0){
+         setplayerScore(data.session.score)
+         console.log("score", data.session.score)
+      }
       if (data.session.score !== null) {
         clearInterval(interval)
       }

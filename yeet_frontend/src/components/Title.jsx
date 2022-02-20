@@ -25,7 +25,7 @@ const Title = () => {
         <div className='fade2'>
             <img src={logoth} alt='title-logo' />
         </div>
-        { timeDelay < -3 && <Navigate to={'/yeet'} state={'James'} /> }
+        { timeDelay < -3 && <Navigate to={'/yeet'} /> }
     </div>
   )
   

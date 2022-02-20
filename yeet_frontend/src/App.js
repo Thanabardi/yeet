@@ -19,7 +19,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/title" element={<Title />}/>
         {/* <Route path="/recipes/:recipeID" element={<Recipes />} /> */}
-        <Route path="*" element={<Navigate to="yeet" />} />
+        <Route path="*" element={<Navigate to="title" />} />
       </Routes>
     </div>
   );
