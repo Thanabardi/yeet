@@ -23,7 +23,7 @@ class SentScore(APIView):
                 return Response({"msg": f"session not found"}, HTTP_404_NOT_FOUND)
             if session.machine.machine_code == machine_code and not session.is_done:
                 # get highest score
-                max_session = Session.objects.order_by('-score')[0]
+                max_session = Session.objects.order_by('-score').exclude(user__isnull=True)[0]
                 # update session
                 session.is_done = True
                 session.end = datetime.now()
