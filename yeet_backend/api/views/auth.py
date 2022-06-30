@@ -29,13 +29,13 @@ class Login(APIView):
             return Response({"msg": "invalid username/password"}, HTTP_404_NOT_FOUND)
 
 class Logout(APIView):
-
+    
     def get(self, request):
         logout(request)
         return Response({"msg": "logged out"})
 
 class Register(APIView):
-    
+
     def is_valid(self, request):
         username = request.data["username"]
         try: 
