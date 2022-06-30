@@ -1,0 +1,155 @@
+.play{
+    background-color: #0A0903;
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.quickplayimg{
+    margin-top: 0px;
+    width: 650px;
+}
+
+.competitiveimg{
+    margin-top : -90px;
+}
+
+.gogo{
+    margin-top: -50px;
+}
+
+.profile{
+    background-color: #ff8200;
+    position: fixed;
+    min-height: 100%;
+    min-width: 100%;
+    background-position: center;
+
+}
+
+.profiletitle{
+    margin-top: -50px;
+}
+
+.yeetname{
+    margin-top: -120px;
+}
+
+.name{
+    font-size: 50px;
+    position: relative;
+    margin-top: -150px;
+    
+}
+
+.changename{
+    width: 300px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    text-indent: 15px;
+    font-size: 23px;
+    background-color: #fffaaa;
+}
+.changename ::placeholder{
+    padding-left: 10px;
+}
+
+.changebutton{
+    font-size: 25px;
+    color: #fffaae;
+    transition: all 0.25s ease;
+    margin-top: 10px;
+}
+.changebutton:hover{
+    transform: translate(-4px,-4px);
+}
+
+.backbutton{
+    width: 300px;
+    margin-right: 1600px;
+    transition: all 0.25s ease;
+}
+.backbutton:hover{
+    transform: translate(-8px,-8px);
+}
+
+.pause{
+    margin-top: 120px;
+    margin-right: 120px;
+    color: white;
+}
+
+.scroll{
+    font-size: 40px;
+    text-align: center;
+    color: #fffaaa;
+    overflow-y: scroll;
+    max-width: 1000px;
+    max-height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.scroll::-webkit-scrollbar {
+    width: 16px;
+}
+ 
+.scroll::-webkit-scrollbar-track {
+    background-color: white;
+    border-radius: 100px;
+}
+ 
+.scroll::-webkit-scrollbar-thumb {
+    background-color: rgb(209, 209, 209);
+    border-radius: 100px;
+}
+
+
+.first{
+    position: relative;
+    left: 130px;
+    padding-right: 280px;
+}
+.play-count{
+    position: relative;
+    bottom: 80px;
+    font-size: 160px;
+    animation-name: number;
+
+    animation-duration: 1.24s;
+    animation-timing-function: linear;
+    opacity: 0;
+    animation-iteration-count: infinite;
+}
+
+.play-count-go{
+    position: relative;
+    bottom: 80px;
+    font-size: 160px;
+}
+
+.play-music{
+    position:absolute;
+    /* top: 500px; */
+    top:750px;
+    left: 470px;
+}
+
+.play-rand{
+    position: relative;
+    bottom: 300px;
+    font-size: 150px;
+}
+
+@keyframes  number{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
